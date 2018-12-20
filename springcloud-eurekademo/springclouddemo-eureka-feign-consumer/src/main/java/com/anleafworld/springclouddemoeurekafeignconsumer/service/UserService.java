@@ -9,7 +9,7 @@ import java.util.List;
 
 /*@FeignClient(value = "provide-hello", configuration = DisableHystrixConfiguration.class)针对指定服务客户端关闭hystrix服务 */
 
-@FeignClient("provide-hello")
+@FeignClient(name = "provide-hello", fallback = FallbackUserServiceImpl.class)
 public interface UserService {
     @RequestMapping(value = "/user/getAllUserPaging",method = RequestMethod.POST)
     List getAllUser();

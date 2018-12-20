@@ -25,7 +25,23 @@ hystrix:
           enable: true  #关闭Hystrix熔断功能，下边的超时时间就没有用了
         isolation:
           thread:
-            timeoutInMilliseconds: 500  #设置全局Hystrix超时时间
+            timeoutInMilliseconds: 50000  #设置全局Hystrix超时时间
 feign:
   hystrix:
     enabled: true  #false关闭Feign客户端的hystrix支持
+  compression:    #hystrix 支持请求Gzip压缩，提高通讯效率,减少性能损耗
+    request:
+      enable: true
+      mime-types: text/xml, application/xml, application/json
+      min-request-size: 2048    #设置压缩条件
+    response:
+      enable: true
+
+logging:
+  level:
+    com:
+      anleafworld:
+        springclouddemoeurekafeignconsumer:
+          service:
+            UserService: debug
+

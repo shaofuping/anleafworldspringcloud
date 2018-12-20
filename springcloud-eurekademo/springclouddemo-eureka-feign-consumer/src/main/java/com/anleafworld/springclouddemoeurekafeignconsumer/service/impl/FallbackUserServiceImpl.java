@@ -2,10 +2,12 @@ package com.anleafworld.springclouddemoeurekafeignconsumer.service.impl;
 
 import com.anleafworld.springclouddemoeurekafeignconsumer.entity.User;
 import com.anleafworld.springclouddemoeurekafeignconsumer.service.UserService;
+import org.springframework.stereotype.Component;
 
 import java.util.Collections;
 import java.util.List;
 
+@Component
 public class FallbackUserServiceImpl implements UserService {
     @Override
     public List getAllUser() {
