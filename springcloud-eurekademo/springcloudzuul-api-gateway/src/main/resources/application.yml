@@ -5,17 +5,35 @@ spring:
     name: agi-gateway
 zuul:
   routes:
-    api-a-url:
-      path: /api-a-url/**
-      url: http://localhost:9091/
+    api-a:
+      path: /api-a/**
+      serviceId: FEIGN-CONSUMER
+      #此处对特定的路由不给本值 ，以便访问时携带cookie等
+      sensitiveHeaders:
     api-c:
       path: /api-c/**
       url: provide-hello
-    api-d:
-      path: /api-d/**
-      url: feign-consumer
+      #对特定的路由开启自定义敏感头信息，访问时可以携带cookie等
+      customSensitiveHeaders: true
+    api-b:
+      path: /api-b/**
+      url: forward:/local   #为匹配的路径配置本地跳转
+    feign-consumer: /api-d/**
+  prefix: /apb    #为所有路由加前缀，避免与路由配置的path重名，否则会访问不到
+  sensitive-headers:    #此处不给值，通过路由访问时才能携带cookie,Set-cookie, Authorization
 eureka:
   client:
     serviceUrl:
       defaultZone:
         http://localhost:1111/eureka/
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enable: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+ribbon:
+  ConnectTimeout: 3000

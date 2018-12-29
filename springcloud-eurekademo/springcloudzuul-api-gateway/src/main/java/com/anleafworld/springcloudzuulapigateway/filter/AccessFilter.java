@@ -7,11 +7,14 @@ import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ *路由访问过滤器
+ */
 public class AccessFilter extends ZuulFilter {
     private Logger logger = LoggerFactory.getLogger(AccessFilter.class);
     @Override
     public String filterType() {
-        return "pre";
+        return "pre";   //访问前过滤
     }
 
     @Override

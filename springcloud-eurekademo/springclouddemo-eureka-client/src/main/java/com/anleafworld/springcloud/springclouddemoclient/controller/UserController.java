@@ -9,10 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Random;
@@ -48,7 +45,7 @@ public class UserController {
         return userService.getUserById(id);
     }
 
-    @PostMapping("getAllUserPaging")
+    @RequestMapping(value = "getAllUserPaging",method = {RequestMethod.GET, RequestMethod.POST})
     @ApiOperation(value = "获取所有用户分页显示", notes = "获取所有用户")
     public List<User> getAllUser(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "5") Integer row) {
         long sleepTime = new Random().nextInt(3000);
