@@ -9,16 +9,16 @@ import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletResponse;
 
 @Component
-public class ThrowExceptionFilter extends ZuulFilter {
-    private static Logger log = LoggerFactory.getLogger(ThrowExceptionFilter.class);
+public class ErrorFilter extends ZuulFilter {
+    private static Logger log = LoggerFactory.getLogger(ErrorFilter.class);
     @Override
     public String filterType() {
-        return "pre";
+        return "error";
     }
 
     @Override
     public int filterOrder() {
-        return 0;
+        return 10;
     }
 
     @Override
@@ -28,19 +28,11 @@ public class ThrowExceptionFilter extends ZuulFilter {
 
     @Override
     public Object run() {
-        log.info("This is a pre filter will throw a runtime exception");
-        //myException();
         RequestContext rc = RequestContext.getCurrentContext();
-        try {
-            myException();
-        } catch (Exception e) {
-            rc.set("error.status_code", HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            rc.set("error.exception", e);
-        }
+        Throwable throwable = rc.getThrowable();
+        log.error("this is a ErrorFilter: {}",throwable.getCause().getMessage());
+        rc.set("error.status_code", HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        rc.set("error.exception", throwable.getCause());
         return null;
-    }
-
-    private void myException() {
-        throw new RuntimeException("test zuul error filter.......");
     }
 }
