@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/springcloud-eurekademo.iml" filepath="$PROJECT_DIR$/.idea/springcloud-eurekademo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloudconfig-server/springcloudconfig-server.iml" filepath="$PROJECT_DIR$/springcloudconfig-server/springcloudconfig-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springclouddemo-eureka-client/springclouddemo-eureka-client.iml" filepath="$PROJECT_DIR$/springclouddemo-eureka-client/springclouddemo-eureka-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springclouddemo-eureka-feign-consumer/springclouddemo-eureka-feign-consumer.iml" filepath="$PROJECT_DIR$/springclouddemo-eureka-feign-consumer/springclouddemo-eureka-feign-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springclouddemo-eureka-consumer/springclouddemoconsumer.iml" filepath="$PROJECT_DIR$/springclouddemo-eureka-consumer/springclouddemoconsumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springclouddemo-eureka-service/springclouddemoservice1.iml" filepath="$PROJECT_DIR$/springclouddemo-eureka-service/springclouddemoservice1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloudzuul-api-gateway/springcloudzuul-api-gateway.iml" filepath="$PROJECT_DIR$/springcloudzuul-api-gateway/springcloudzuul-api-gateway.iml" />
+    </modules>
+  </component>
+</project>
