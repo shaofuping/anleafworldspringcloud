@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: didispace
+  cloud:
+    config:
+      profile: prod
+      lable: master
+      uri: http://localhost:6666/
+server:
+  port: 6001
