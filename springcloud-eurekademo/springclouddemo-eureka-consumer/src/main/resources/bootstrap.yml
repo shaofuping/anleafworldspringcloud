@@ -3,8 +3,22 @@ spring:
     name: didispace
   cloud:
     config:
+      discovery:
+        enabled: true
+        service-id: config-server
       profile: prod
       lable: master
       uri: http://localhost:6666/
+      fail-fast: true
 server:
   port: 6001
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:1111/eureka,http://peer2:1112/eureka
+management:
+  security:
+    enabled: false
+endpoints:
+  shutdown:
+    enabled: true

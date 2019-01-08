@@ -62,6 +62,16 @@
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
 
+        <!--确保已经配置了spring.cloud.config.failFast=true(连接config server快速失败响应，不过多加载），开启config客户端重试功能-->
+        <dependency>
+            <groupId>org.springframework.retry</groupId>
+            <artifactId>spring-retry</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
     </dependencies>
     <dependencyManagement>
         <dependencies>
