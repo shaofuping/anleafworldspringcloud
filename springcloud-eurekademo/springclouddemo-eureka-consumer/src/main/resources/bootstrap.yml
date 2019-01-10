@@ -10,6 +10,8 @@ spring:
       lable: master
       uri: http://localhost:6666/
       fail-fast: true
+      username: user
+      password: 4551eb35-45fc-404d-b285-82e0de83eaa8
 server:
   port: 6001
 eureka:

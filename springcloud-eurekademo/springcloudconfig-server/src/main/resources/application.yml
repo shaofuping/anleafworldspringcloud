@@ -11,6 +11,12 @@ spring:
           password: 61117001work
 server:
   port: 6666
+security:
+  user:
+    password: 4551eb35-45fc-404d-b285-82e0de83eaa8
+    name: user
+encrypt:
+  key: didispace
 eureka:
   client:
     service-url:

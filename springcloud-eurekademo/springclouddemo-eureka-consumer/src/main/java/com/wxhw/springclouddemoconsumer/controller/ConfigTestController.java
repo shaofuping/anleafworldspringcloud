@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class ConfigTestController {
     @Value("${from}")
     private String from;
+    @Value("${content}")
+    private String content;
 
     @RequestMapping("/from")
     public String getOuterConfig() {
-        return this.from;
+        return this.from + "is " + this.content;
     }
 }
